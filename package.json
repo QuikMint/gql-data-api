@@ -1,0 +1,25 @@
+{
+  "name": "graphql-express-ts-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node lib/index.js",
+    "dev": "nodemon src/index.ts",
+    "itup": "npm run build && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.8.2",
+    "firebase-admin": "^10.2.0",
+    "graphql": "^16.5.0",
+    "typescript": "^4.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}

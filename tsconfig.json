@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"lib": ["es6", "esnext.asynciterable", "dom"],
+		"module": "CommonJS",
+		"noImplicitReturns": false,
+		"outDir": "lib",
+		"sourceMap": true,
+		"allowSyntheticDefaultImports": true,
+		"target": "ES2017"
+	},
+	"compileOnSave": true,
+	"include": ["src", "service-account.json"]
+}
