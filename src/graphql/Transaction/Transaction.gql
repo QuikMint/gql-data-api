@@ -1,0 +1,29 @@
+type Transaction {
+  id: ID!
+  start: Int!
+  finish: Int
+  fee: Int!
+  price: Int!
+  client: Client!
+  client_id: String!
+  contract: Contract!
+  contract_id: String!
+  customer: Customer!
+  customer_id: String!
+}
+
+input TransactionInput {
+  fee: Int!
+  price: Int!
+  contract_id: String!
+  customer_id: String
+}
+
+type Query {
+  transactions(id: String!): [Transaction]
+  transaction(id: String!): Transaction
+}
+
+type Mutation {
+  createTransaction(input: TransactionInput!): Transaction!
+}

@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"lib": ["es6", "esnext.asynciterable", "dom"],
+		"module": "CommonJS",
+		"noImplicitReturns": false,
+		"outDir": "lib",
+		"sourceMap": true,
+		"allowSyntheticDefaultImports": true,
+		"target": "es2017",
+		"moduleResolution": "node",
+		"esModuleInterop": true
+	},
+	"compileOnSave": true,
+	"include": ["/**/*.ts"],
+  "exclude": ["node_modules"]
+}

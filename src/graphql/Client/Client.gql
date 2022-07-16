@@ -1,0 +1,41 @@
+type Client {
+  id: ID!
+  timestamp: Int!
+  name: String!
+  phone: String!
+  email: String!
+  website: String!
+  admin: Boolean
+  birthday: String!
+  description: String!
+  contracts: [Contract]!
+  customers: [Customer]!
+  transactions: [Transaction]!
+}
+
+input ClientInput {
+  name: String!
+  phone: String!
+  email: String!
+  website: String!
+  birthday: String!
+  description: String!
+}
+
+input UpdateClientInput {
+  id: ID!
+  name: String
+  phone: String
+  email: String
+  website: String
+  description: String
+}
+
+type Query {
+  client(id: String!): Client
+}
+
+type Mutation {
+  createClient(input: ClientInput): Client!
+  updateClient(input: UpdateClientInput): Boolean
+}

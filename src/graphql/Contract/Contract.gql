@@ -1,0 +1,46 @@
+type Contract {
+  id: ID!
+  timestamp: Int!
+  address: String!
+  baseuri: String!
+  mintPrice: Int!
+  minted: Int!
+  name: String!
+  owner: String!
+  supply: Int!
+  client: Client!
+  client_id: String!
+  customers: [Customer]!
+  transactions: [Transaction]!
+}
+
+input ContractInput {
+  address: String!
+  mintPrice: Int!
+  minted: Int
+  name: String!
+  owner: String!
+  supply: Int!
+  client_id: String!
+}
+
+input UpdateContractInput {
+  id: ID!
+  address: String
+  mintPrice: Int
+  minted: Int
+  name: String
+  owner: String
+  supply: Int
+  client_id: String
+}
+
+type Query {
+  contracts(client: String!): [Contract]
+  contract(id: String!): Contract
+}
+
+type Mutation {
+  createContract(input: ContractInput): Contract!
+  updateContract(input: UpdateContractInput): Boolean
+}
