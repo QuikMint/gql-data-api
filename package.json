@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc && cp ./src/graphql/Client/Client.gql ./lib/graphql/Client && cp ./src/graphql/Contract/Contract.gql ./lib/graphql/Contract && cp ./src/graphql/Customer/Customer.gql ./lib/graphql/Customer && cp ./src/graphql/Transaction/Transaction.gql ./lib/graphql/Transaction",
     "start": "node lib/index.js",
     "dev": "nodemon src/index",
     "itup": "npm run build && npm start"
@@ -17,11 +17,12 @@
     "@graphql-tools/load-files": "^6.6.0",
     "@graphql-tools/merge": "^8.3.0",
     "apollo-server": "^3.8.2",
+    "dotenv": "^16.0.1",
     "firebase-admin": "^10.2.0",
     "graphql": "^16.5.0",
     "mongoose": "^6.4.4",
-    "typescript": "^4.7.3",
-    "quikmint": "latest"
+    "quikmint": "latest",
+    "typescript": "^4.7.3"
   },
   "devDependencies": {
     "nodemon": "latest"

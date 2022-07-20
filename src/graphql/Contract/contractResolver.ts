@@ -51,10 +51,11 @@ export const contractMutation = {
       const contracto = {
         address: contract.address,
         mintPrice: contract.mintPrice,
-        minted: contract.minted,
+        minted: contract.minted || 0,
         name: contract.name,
         owner: contract.owner,
         supply: contract.supply,
+        baseuri: contract.baseuri,
         client_id: contract.client_id,
         timestamp: Date.now(),
       }

@@ -1,8 +1,7 @@
 import { ApolloServer } from 'apollo-server'
+import mongoose from 'mongoose'
 import { typeDefs, resolvers } from './graphql'
-import { init } from './graphql/utils/connection'
-
-init()
+require('dotenv').config()
 
 const server = new ApolloServer({
   typeDefs,
@@ -10,9 +9,17 @@ const server = new ApolloServer({
   csrfPrevention: true,
   context: async () => {},
 })
+mongoose.connect(process.env.MONGODB_URI)
 
-server.listen({
-  port: 3000
-}).then(({ url }) => {
-  console.log(`Listening at ${url}`)
+const db = mongoose.connection
+db.on('error', () => process.exit(1))
+db.once('open', () => {
+  console.log('connected to mongodb')
+  server
+    .listen({
+      port: 3000,
+    })
+    .then(({ url }) => {
+      console.log(`Listening at ${url}`)
+    })
 })

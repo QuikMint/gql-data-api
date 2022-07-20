@@ -1,14 +1,36 @@
+
+import { Client } from './clientSchema'
 import { ApolloError } from 'apollo-server'
+import { Kind, GraphQLScalarType } from 'graphql'
 import { Contract } from '../Contract/contractSchema'
 import { Customer } from '../Customer/customerSchema'
 import { Transaction } from '../Transaction/transactionSchema'
-import { Client } from './clientSchema'
+
+
+export const resolverMap = {
+  Date: new GraphQLScalarType({
+    name: 'Date',
+    description: 'Date custom scalar type',
+    parseValue: (value: string | number | Date) => {
+      return new Date(value) // value from the client
+    },
+    serialize: (value: Date) => {
+      return value.getTime() // value sent to the client
+    },
+    parseLiteral: (ast) => {
+      if (ast.kind === Kind.INT) {
+        return new Date(+ast.value) // ast value is always in string format
+      }
+      return null
+    }
+  })
+}
 
 export const RClient = {
   // get all contracts where ID === client
   async contracts(client) {
     try {
-      return await Contract.find({ client_id: client })
+      return await Contract.find({ client_id: client.id })
     } catch (error) {
       throw new ApolloError(error)
     }
@@ -22,7 +44,7 @@ export const RClient = {
   },
   async transactions(client) {
     try {
-      return await Transaction.find({ client_id: client })
+      return await Transaction.find({ client_id: client.id })
     } catch (error) {
       throw new ApolloError(error)
     }

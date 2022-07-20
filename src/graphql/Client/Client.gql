@@ -1,6 +1,8 @@
+scalar Date
+
 type Client {
   id: ID!
-  timestamp: Int!
+  timestamp: Date!
   name: String!
   phone: String!
   email: String!

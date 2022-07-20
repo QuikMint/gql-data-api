@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { IClient } from 'quikmint'
+import { IClient } from '../utils'
 
 const clientSchema = new mongoose.Schema<IClient>({
   name: { type: String, required: true },

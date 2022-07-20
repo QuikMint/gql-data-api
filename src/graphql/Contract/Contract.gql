@@ -1,6 +1,6 @@
 type Contract {
   id: ID!
-  timestamp: Int!
+  timestamp: Date!
   address: String!
   baseuri: String!
   mintPrice: Int!
@@ -22,6 +22,7 @@ input ContractInput {
   owner: String!
   supply: Int!
   client_id: String!
+  baseuri: String!
 }
 
 input UpdateContractInput {

@@ -58,11 +58,14 @@ export const transactionMutation = {
         customer_id: transaction.customer_id,
         contract_id: transaction.contract_id,
         client_id: transaction.client_id,
-        timestamp: Date.now(),
+        start: Date.now(),
       }
       return await Transaction.create({ ...transactionne })
     } catch (error) {
       throw new ApolloError(error)
     }
   },
+  async finish(_, { id }) {
+    return await (await Transaction.findByIdAndUpdate(id, { finish: Date.now() }, { new: true })).save()
+  }
 }

@@ -4,9 +4,11 @@ const { mergeTypeDefs } = require('@graphql-tools/merge')
 
 const typesArray = loadFilesSync(path.join(__dirname, './'), { extensions: ['gql'] })
 
+
+
 const typeDefs = mergeTypeDefs(typesArray)
 
-import { RClient, clientMutation, clientQuery } from './Client/clientResolver'
+import { RClient, clientMutation, clientQuery, resolverMap } from './Client/clientResolver'
 import { RContract, contractMutation, contractQuery } from './Contract/contractResolver'
 import { RCustomer, customerMutation, customerQuery } from './Customer/customerResolver'
 import { RTransaction, transactionMutation, transactionQuery } from './Transaction/transactionResolver'
@@ -17,6 +19,7 @@ const resolvers = {
   Contract: RContract,
   Customer: RCustomer,
   Transaction: RTransaction,
+  Date: resolverMap,
 
   Query: {
     ...clientQuery,

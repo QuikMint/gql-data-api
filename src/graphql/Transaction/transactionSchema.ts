@@ -1,14 +1,14 @@
 import mongoose from 'mongoose'
-import { ITransaction } from 'quikmint'
+import { ITransaction } from '../utils'
 
 const transactionSchema = new mongoose.Schema<ITransaction>({
-  start: {type: Number, required: true},
-	finish: {type: Number, required: true},
-	fee: {type: Number, required: true},
-	price: {type: Number, required: true},
-  client: { type: String, required: true },
-  contract: { type: String, required: true },
-  customer: { type: String, required: true }
+  start: { type: Number, required: true },
+  finish: { type: Number },
+  fee: { type: Number, required: true },
+  price: { type: Number, required: true },
+  client_id: { type: String, required: true },
+  contract_id: { type: String, required: true },
+  customer_id: { type: String, required: true },
 })
 
 transactionSchema.virtual('id').get(function () {

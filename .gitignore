@@ -80,5 +80,5 @@ web_modules/
 .vscode-test
 
 # Misc
-
+lib/
 *.pem

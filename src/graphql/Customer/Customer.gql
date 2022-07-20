@@ -1,6 +1,6 @@
 type Customer {
   id: ID!
-  timestamp: Int!
+  timestamp: Date!
   initiated: Boolean
   complete: Boolean!
   email: String!

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { ICustomer } from 'quikmint'
+import { ICustomer } from '../utils'
 
 const customerSchema = new mongoose.Schema<ICustomer>({
   initiated: { type: Boolean, required: true,  },
@@ -8,8 +8,8 @@ const customerSchema = new mongoose.Schema<ICustomer>({
   email: { type: String, required: true },
   name: { type: String, required: true },
   phone: { type: String, required: true },
-  client: { type: String, required: true },
-  contract: { type: String, required: true },
+  client_id: { type: String, required: true },
+  contract_id: { type: String, required: true },
 })
 
 customerSchema.virtual('id').get(function () {

@@ -1,7 +1,7 @@
 type Transaction {
   id: ID!
-  start: Int!
-  finish: Int
+  start: Date!
+  finish: Date
   fee: Int!
   price: Int!
   client: Client!
@@ -16,7 +16,8 @@ input TransactionInput {
   fee: Int!
   price: Int!
   contract_id: String!
-  customer_id: String
+  customer_id: String!
+  client_id: String!
 }
 
 type Query {
@@ -26,4 +27,5 @@ type Query {
 
 type Mutation {
   createTransaction(input: TransactionInput!): Transaction!
+  finish(id: String!): Transaction!
 }
