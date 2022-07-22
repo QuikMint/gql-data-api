@@ -21,7 +21,6 @@
     "firebase-admin": "^10.2.0",
     "graphql": "^16.5.0",
     "mongoose": "^6.4.4",
-    "quikmint": "latest",
     "typescript": "^4.7.3"
   },
   "devDependencies": {

@@ -12,7 +12,10 @@ const server = new ApolloServer({
 mongoose.connect(process.env.MONGODB_URI)
 
 const db = mongoose.connection
-db.on('error', () => process.exit(1))
+db.on('error', (e) => {
+  console.error(e)
+  process.exit(1)
+})
 db.once('open', () => {
   console.log('connected to mongodb')
   server
